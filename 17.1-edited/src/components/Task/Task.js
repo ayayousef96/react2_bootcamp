@@ -2,7 +2,8 @@ import React ,{useState,useEffect} from "react";
 import "./Task.css"
 
 function Task(props) {
-    const [update,setUpdate]=useState("")
+    const [update,setUpdate]=useState("");
+    const [buttonText,setButtonText]=useState("X");;
 
  useEffect(()=>{
     setUpdate(props.text);
@@ -20,6 +21,12 @@ function Task(props) {
   const handleClickDelete=()=>{
    props.delete(props.id);
   }
+  const handleCheck = () =>{
+    buttonText ===  "X"? setButtonText("V"):setButtonText("X");
+      
+
+  }
+
   
 
   return (
@@ -27,6 +34,7 @@ function Task(props) {
       <textarea rows="11" cols="25" value={update} onChange={handleNewInput}/>
       {/* <input type="checkbox" className="checkbox-style" value={"x"}/> */}
       <button className="btn-style delete" onClick={handleClickDelete}>Delete</button>
+      <button  onClick={handleCheck}>{buttonText}</button>
   
     </div>
   );
