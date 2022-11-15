@@ -8,8 +8,7 @@ import { v4 as uniqId } from "uuid";
 
     const [userinput,setInput] = useState("");
     const [tasks,setTasks] = useState([JSON.parse(localStorage.tasks)]);
-    const [buttonText,setButtonText]=useState("X");
- 
+    
 
     const handleInput = (event) => {
     setInput(event.target.value);
@@ -28,11 +27,7 @@ import { v4 as uniqId } from "uuid";
      
     };
 
-    const handleCheck = () =>{
-      buttonText ===  "X"? setButtonText("V"):setButtonText("X");
-        
-
-    }
+    
 
   const displayTasks = () => {
     return tasks.map((task) => {
@@ -43,7 +38,6 @@ import { v4 as uniqId } from "uuid";
             text={userinput}
             delete={handleDelete}
           />
-          <button onClick={handleCheck}>{buttonText}</button>
           
           
         </div>
